@@ -21,8 +21,7 @@ Luego abrí la URL que muestre Vite en tu navegador (por defecto, http://localho
 
 ## 5. Qué dirigí yo y qué error encontré probando
 
-Dirigí al agente indicando las reglas de los 4 sectores. Un error que encontré al probar fue equilibrar la carga del Hospital y las Casas sin sobrepasar el 100% de la capacidad de la red
-
+Dirigí al agente indicando la lógica de la ficha y las reglas para los 4 sectores. Al probar el juego, encontré que si avanzaba turno sin apagar ningún sector la red colapsaba de inmediato por sobrecapacidad, por lo que tuve que ajustar las acciones iniciales en el primer turno.
 ## 6. Declaración de autoría
 Usé GitHub Copilot dentro de VS Code como herramienta de apoyo para generar y refinar el código.
 El código del proyecto fue generado por un agente de IA bajo mi dirección, y yo supervisé la lógica, la estructura y la validación del juego.
