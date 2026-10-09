@@ -25,3 +25,14 @@ CONTROLES: Teclas 1, 2, 3, 4 y botones táctiles en pantalla.
 COLORES: Verde (red estable / sector encendido), Rojo (sobrecarga / sector apagado), Amarillo (alerta).
 CRITERIO DE ACEPTACIÓN: Abro la app, veo carga al 110%, apago Casas para bajar a 80%, avanzo turno, mantengo Hospital encendido 8 turnos y gano.
 LO QUE NO VA: Sin animaciones complejas, sin sonidos, sin múltiples niveles.
+Escribí pruebas con Vitest para src/logica.ts, en test/logica.test.ts.
+
+Como mínimo cinco, y tienen que cubrir:
+1. Que el estado inicial se arme bien.
+2. Cada acción del usuario: qué hace cuando es válida y qué devuelve cuando no.
+3. Que no se pueda hacer una acción prohibida por las reglas.
+4. La condición de «termina bien» y la de «termina mal» de mi ficha.
+5. UNA PRUEBA QUE RECORRA UN USO COMPLETO de principio a fin y compruebe que SE PUEDE LLEGAR AL FINAL BUENO.
+
+Los nombres de las pruebas en español y en forma de frase.
+No modifiques src/logica.ts. Al terminar corré npm test y pegame el resultado.
