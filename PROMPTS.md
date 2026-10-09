@@ -36,3 +36,19 @@ Como mínimo cinco, y tienen que cubrir:
 
 Los nombres de las pruebas en español y en forma de frase.
 No modifiques src/logica.ts. Al terminar corré npm test y pegame el resultado.
+Creá src/main.ts y src/estilos.css para mostrar el juego APAGÓN en pantalla con un diseño oscuro, profesional y accesible (tarjetas de estadísticas arriba y panel de control abajo).
+
+REGLAS TÉCNICAS Y DE INTERFAZ:
+- main.ts NO decide reglas: solo llama a las funciones de src/logica.ts y actualiza la pantalla.
+- Encabezado claro: "APAGÓN · CONTROL DE EMERGENCIA" y el título "La red está al límite."
+- Tarjetas de estado en la parte superior: TURNO (actual/8), CAPACIDAD DE RED (%), SECTORES SIN LUZ y ESTADO DE LA RED.
+- Panel principal con los 4 sectores (Hospital, Agua, Escuelas, Casas): muestra si están encendidos o apagados, y un botón para cambiar su estado.
+- Incluí un botón prominente para "Avanzar Turno".
+- MÓVIL Y ACCESIBILIDAD (Obligatorio):
+  1. Botones táctiles con un tamaño mínimo de 44px de alto y ancho.
+  2. Cero desplazamiento horizontal (fit en pantalla).
+  3. Texto nunca menor a 16px.
+  4. Controles por teclado: Teclas 1, 2, 3, 4 para los sectores y Espacio para Avanzar Turno.
+- Usa colores según la ficha: Verde (estable / encendido), Rojo (sobrecarga / a oscuras) y Amarillo (alerta).
+- Importá el CSS desde main.ts con: import './estilos.css'
+- Ajustá index.html si hace falta para incluir <div id="app"></div> y la etiqueta viewport correcta.
