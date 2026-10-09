@@ -52,3 +52,14 @@ REGLAS TÉCNICAS Y DE INTERFAZ:
 - Usa colores según la ficha: Verde (estable / encendido), Rojo (sobrecarga / a oscuras) y Amarillo (alerta).
 - Importá el CSS desde main.ts con: import './estilos.css'
 - Ajustá index.html si hace falta para incluir <div id="app"></div> y la etiqueta viewport correcta.
+
+Escribí el archivo README.md en español con estas seis partes:
+
+1. Nombre y la frase de mi ficha.
+2. Qué hace y cómo se usa, en tres líneas.
+3. El enlace para abrirlo.
+4. Cómo correrlo en otra máquina: los comandos exactos.
+5. Dejá este espacio en blanco con un comentario para que lo llene yo:
+   «Qué dirigí yo y qué error encontré probando».
+6. Declaración de autoría: qué herramienta usé, que el código lo generó un
+   agente de IA bajo mi dirección, y qué partes puedo explicar.
