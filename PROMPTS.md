@@ -63,3 +63,13 @@ Escribí el archivo README.md en español con estas seis partes:
    «Qué dirigí yo y qué error encontré probando».
 6. Declaración de autoría: qué herramienta usé, que el código lo generó un
    agente de IA bajo mi dirección, y qué partes puedo explicar.
+
+   Pront de mejora 
+   Agregá una mejora visual y de experiencia de usuario a src/main.ts y src/estilos.css:
+
+1. Barra de carga dinámica: La tarjeta de CAPACIDAD DE RED debe incluir una barra de progreso que cambie de color (Verde si <80%, Amarillo entre 80-100%, Rojo parpadeante si >100%).
+2. Efectos de estado: Agregá un indicador con efecto de pulso neón/alerta en el encabezado cuando la red esté sobrecargada o en peligro.
+3. Feedback háptico/móvil: Si el navegador lo soporta (navigator.vibrate), hacé que el dispositivo vibre levemente (50ms) al presionar cualquier botón de acción.
+4. Animación suave de transición en las tarjetas al cambiar entre encendido y apagado.
+
+Mantené la compatibilidad completa con src/logica.ts y las pruebas existentes.

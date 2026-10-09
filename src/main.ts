@@ -76,6 +76,15 @@ function renderizar(): void {
     (sector) => !estado.sectoresEncendidos[sector.id],
   ).length;
   const estadoRed = obtenerEstadoRed(carga);
+  const redEnPeligro =
+    carga > CONFIG.cargaMaximaEstable || !estado.sectoresEncendidos.hospital;
+  const claseBarraCarga =
+    carga > 100
+      ? "barra-carga--roja"
+      : carga >= 80
+        ? "barra-carga--amarilla"
+        : "barra-carga--verde";
+  const anchoBarraCarga = Math.min(Math.max(carga, 0), 100);
   const partidaTerminada = estado.estadoPartida !== "enCurso";
   const focoActual = document.activeElement;
   const controlEnfocado =
@@ -85,7 +94,7 @@ function renderizar(): void {
 
   app.innerHTML = `
     <div class="pagina">
-      <header class="encabezado">
+      <header class="encabezado ${redEnPeligro ? "encabezado--alerta" : ""}">
         <div class="marca" aria-label="APAGÓN · Control de Emergencia">
           <span class="marca__icono" aria-hidden="true">
             <svg viewBox="0 0 32 32" fill="none">
@@ -94,7 +103,10 @@ function renderizar(): void {
           </span>
           <span>APAGÓN <span class="marca__separador">·</span> CONTROL DE EMERGENCIA</span>
         </div>
-        <p class="encabezado__nota">CENTRO DE OPERACIONES <span aria-hidden="true">/</span> RED NACIONAL</p>
+        <div class="encabezado__estado">
+          ${redEnPeligro ? `<span class="encabezado__alerta">ALERTA DE RED</span>` : ""}
+          <p class="encabezado__nota">CENTRO DE OPERACIONES <span aria-hidden="true">/</span> RED NACIONAL</p>
+        </div>
       </header>
 
       <main>
@@ -110,9 +122,20 @@ function renderizar(): void {
             <p class="valor-estadistica">${estado.turno}<span class="valor-estadistica__total">/${CONFIG.turnosParaGanar}</span></p>
             <p class="detalle-estadistica">Ciclo operativo</p>
           </article>
-          <article class="tarjeta-estadistica">
+          <article class="tarjeta-estadistica tarjeta-estadistica--capacidad">
             <p class="etiqueta">CAPACIDAD DE RED</p>
             <p class="valor-estadistica ${carga > CONFIG.cargaMaximaEstable ? "texto--rojo" : ""}">${carga}<span class="valor-estadistica__total">%</span></p>
+            <div
+              class="barra-carga ${claseBarraCarga}"
+              role="progressbar"
+              aria-label="Carga de la red"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="${anchoBarraCarga}"
+              aria-valuetext="${carga}% de carga"
+            >
+              <span class="barra-carga__relleno" style="width: ${anchoBarraCarga}%"></span>
+            </div>
             <p class="detalle-estadistica">Límite estable: ${CONFIG.cargaMaximaEstable}%</p>
           </article>
           <article class="tarjeta-estadistica">
@@ -217,6 +240,9 @@ function renderizar(): void {
 }
 
 function ejecutarAccion(accion: () => boolean): void {
+  if ("vibrate" in navigator && typeof navigator.vibrate === "function") {
+    navigator.vibrate(50);
+  }
   mensajeAccion = accion() ? "" : "Acción no disponible en este momento.";
   renderizar();
 }
